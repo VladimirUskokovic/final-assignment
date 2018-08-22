@@ -6,9 +6,12 @@
 
 @import "layout/grid";
 @import "layout/header";
-@import "layout/content";
+//@import "layout/content";
+@import "layout/productContent";
 @import "layout/footer";
 @import "layout/copyright";
 @import "layout/responsive";
+@import "layout/productResponsive";
 
-@import "pages/home";
+//@import "pages/home";
+@import "pages/singleProduct";
