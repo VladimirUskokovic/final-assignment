@@ -7,11 +7,14 @@
 @import "layout/grid";
 @import "layout/header";
 //@import "layout/content";
-@import "layout/productContent";
+//@import "layout/productContent";
+@import "layout/categoriesContent";
 @import "layout/footer";
 @import "layout/copyright";
 @import "layout/responsive";
-@import "layout/productResponsive";
+//@import "layout/productResponsive";
+@import "layout/categoriesResponsive";
 
 //@import "pages/home";
-@import "pages/singleProduct";
+//@import "pages/singleProduct";
+@import "pages/categories";
