@@ -9,12 +9,12 @@ $(document).ready(function()
 	1. Vars and Inits
 
 	*/
-	initImage();
-
-	$(window).on('resize', function()
-	{
-		//setHeader();
-	});
+	// initImage();
+	//
+	// $(window).on('resize', function()
+	// {
+	// 	//setHeader();
+	// });
 
 	/* 
 

@@ -1,10 +1,9 @@
-@import "components/navigation";
-
 @import "helpers/functions";
 @import "helpers/mixins";
 @import "helpers/variables";
 
-@import "layout/grid";
+@import "theme/base";
+
 @import "layout/header";
 @import "layout/content";
 //@import "layout/productContent";
@@ -18,3 +17,6 @@
 @import "pages/home";
 @import "pages/singleProduct";
 @import "pages/categories";
+
+@import "components/navigation";
+@import "components/product";

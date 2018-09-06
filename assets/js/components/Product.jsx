@@ -12,21 +12,9 @@ class Product extends Component {
                         <div><a href="product.html">Huawei MediaPad...</a></div>
                     </div>
                     <div className="product_extras">
-                        <div className="product_color">
-                            <input type="radio" name="product_color"
-                                   style={{background: '#b19c83' }}/>
-                            <input type="radio" name="product_color"
-                                   style={{background: '#000000' }}/>
-                            <input type="radio" name="product_color"
-                                   style={{background: '#999999' }}/>
-                        </div>
                         <button className="product_cart_button">Check Prices</button>
                     </div>
                 </div>
-                <div className="product_fav"><i className="fas fa-heart"></i></div>
-                <ul className="product_marks">
-                    <li className="product_mark product_new">new</li>
-                </ul>
             </div>
         );
     }

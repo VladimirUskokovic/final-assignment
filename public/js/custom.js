@@ -10,14 +10,14 @@ $(document).ready(function()
 
 	*/
 
-	initFeaturedSlider();
-	featuredSliderZIndex();
-	initPopularSlider();
+	// initFeaturedSlider();
+	// featuredSliderZIndex();
+	// initPopularSlider();
 
-	$(window).on('resize', function()
-	{
-		featuredSliderZIndex();
-	});
+	// $(window).on('resize', function()
+	// {
+	// 	featuredSliderZIndex();
+	// });
 	/* 
 
 	8. Init Featured Slider
