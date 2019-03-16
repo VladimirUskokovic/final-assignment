@@ -1,6 +1,13 @@
 {
     "devDependencies": {
-        "@symfony/webpack-encore": "^0.17.0"
+        "@symfony/webpack-encore": "^0.17.0",
+        "babel-preset-react": "^6.24.1",
+        "node-sass": "^4.9.3",
+        "prop-types": "^15.6.2",
+        "react": "^16.4.2",
+        "react-dom": "^16.4.2",
+        "react-router-dom": "^4.3.1",
+        "sass-loader": "^7.1.0"
     },
     "license": "UNLICENSED",
     "private": true,

@@ -1,0 +1,22 @@
+@import "helpers/functions";
+@import "helpers/mixins";
+@import "helpers/variables";
+
+@import "theme/base";
+
+@import "layout/header";
+//@import "layout/content";
+@import "layout/productContent";
+//@import "layout/categoriesContent";
+@import "layout/footer";
+@import "layout/copyright";
+@import "layout/responsive";
+//@import "layout/productResponsive";
+//@import "layout/categoriesResponsive";
+
+@import "pages/home";
+@import "pages/singleProduct";
+@import "pages/categories";
+
+@import "components/navigation";
+@import "components/product";
