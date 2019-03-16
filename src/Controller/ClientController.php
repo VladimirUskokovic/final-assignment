@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ClientController extends Controller {
 
     /**
-     * @Route("/client/{route}", name="client", defaults={"route": null})
+     * @Route("/client/{route}", name="client", defaults={"route": null}, requirements={"route"=".+"})
      */
     public function index() {
         return $this->render('base.html.twig');
