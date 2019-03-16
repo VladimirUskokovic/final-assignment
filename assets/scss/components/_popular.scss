@@ -15,7 +15,9 @@
 .popular_categories_slider_nav {
   margin-top: 27px;
 }
-
+.popular_categories_slider {
+  display: flex;
+}
 .popular_categories_nav {
   display: inline-block;
   width: 36px;
@@ -59,7 +61,7 @@
   padding-right: 40px;
 }
 
-.popular_categories_slider .owl-item:nth-child(even) {
+.popular_categories_slider .category-item:nth-child(even) {
   background: #eff6fa;
 }
 

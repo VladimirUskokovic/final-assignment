@@ -4,9 +4,9 @@ $(document).ready(function()
 {
 	"use strict";
 
-	initBrandsSlider();
-	initIsotope();
-	initPriceSlider();
+	//initBrandsSlider();
+	//initIsotope();
+	//initPriceSlider();
 
 
 	$(window).on('resize', function()

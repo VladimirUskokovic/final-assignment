@@ -18,28 +18,6 @@ class Sidebar extends Component {
                         <li><a href="#">Accessories</a></li>
                     </ul>
                 </div>
-                <div className="sidebar_section filter_by_section">
-                    <div className="sidebar_title">Filter By</div>
-                    <div className="sidebar_subtitle">Price</div>
-                    <div className="filter_price">
-                        <div id="slider-range" className="slider_range"></div>
-                        <p>Range: </p>
-                        <p><input type="text" id="amount" className="amount" readOnly
-                                  style={{border:'0', fontWeight:'bold'}}/></p>
-                    </div>
-                </div>
-                <div className="sidebar_section">
-                    <div className="sidebar_subtitle color_subtitle">Color</div>
-                    <ul className="colors_list">
-                        <li className="color"><a href="#" style={{background: '#b19c83'}}></a></li>
-                        <li className="color"><a href="#" style={{background: '#000000'}}></a></li>
-                        <li className="color"><a href="#" style={{background: '#999999'}}></a></li>
-                        <li className="color"><a href="#" style={{background: '#0e8ce4'}}></a></li>
-                        <li className="color"><a href="#" style={{background: '#df3b3b'}}></a></li>
-                        <li className="color"><a href="#"
-                                                 style={{background: '#ffffff', border: 'solid 1px #e1e1e1'}}></a></li>
-                    </ul>
-                </div>
                 <div className="sidebar_section">
                     <div className="sidebar_subtitle brands_subtitle">Brands</div>
                     <ul className="brands_list">
