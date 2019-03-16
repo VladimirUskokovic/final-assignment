@@ -1,19 +1,40 @@
 import React, { Component } from "react";
 
 class ProductLarge extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            image: "images/single_1.jpg",
+            images: [
+                "images/single_1.jpg",
+                "images/single_2.jpg",
+                "images/single_3.jpg"
+            ]
+        }
+    }
+    setModal(imageKey) {
+        this.setState({ image: this.state.images[imageKey] });
+    }
+    getImage() {
+        return this.state.image;
+    }
     render() {
+        let images = this.state.images.map((val, key) => {
+            return <li onClick={() => {this.setModal(key)}} key={key}><img src={val} alt=""/></li>
+        });
         return (
+            <div>
             <div className="container">
                 <div className="row">
                     <div className="col-lg-2 order-lg-1 order-2">
                         <ul className="image_list">
-                            <li data-image="images/single_4.jpg"><img src="images/single_4.jpg" alt=""/></li>
-                            <li data-image="images/single_2.jpg"><img src="images/single_2.jpg" alt=""/></li>
-                            <li data-image="images/single_3.jpg"><img src="images/single_3.jpg" alt=""/></li>
+                            {images}
                         </ul>
                     </div>
                     <div className="col-lg-5 order-lg-2 order-1">
-                        <div className="image_selected"><img src="images/single_4.jpg" alt=""/></div>
+                        <div className="image_selected">
+                            <img src={this.state.image}></img>
+                        </div>
                     </div>
                     <div className="col-lg-5 order-3">
                         <div className="product_description">
@@ -25,54 +46,12 @@ class ProductLarge extends Component {
                                 elit. Maecenas fermentum. laoreet turpis, nec sollicitudin dolor cursus at. Maecenas
                                 aliquet, dolor a faucibus efficitur, nisi tellus cursus urna, eget dictum lacus
                                 turpis.</p></div>
-                            <div className="order_info d-flex flex-row">
-                                <form action="#">
-                                    <div className="clearfix" style={{zIndex: '1000'}}>
-                                        <div className="product_quantity clearfix">
-                                            <span>Quantity: </span>
-                                            <input id="quantity_input" type="text" pattern="[0-9]*" defaultValue="1"/>
-                                            <div className="quantity_buttons">
-                                                <div id="quantity_inc_button"
-                                                     className="quantity_inc quantity_control"><i
-                                                    className="fas fa-chevron-up"></i></div>
-                                                <div id="quantity_dec_button"
-                                                     className="quantity_dec quantity_control"><i
-                                                    className="fas fa-chevron-down"></i></div>
-                                            </div>
-                                        </div>
-                                        <ul className="product_color">
-                                            <li>
-                                                <span>Color: </span>
-                                                <div className="color_mark_container">
-                                                    <div id="selected_color" className="color_mark"></div>
-                                                </div>
-                                                <div className="color_dropdown_button"><i
-                                                    className="fas fa-chevron-down"></i></div>
 
-                                                <ul className="color_list">
-                                                    <li>
-                                                        <div className="color_mark"
-                                                             style={{background: '#999999'}}></div>
-                                                    </li>
-                                                    <li>
-                                                        <div className="color_mark"
-                                                             style={{background: '#b19c83'}}></div>
-                                                    </li>
-                                                    <li>
-                                                        <div className="color_mark"
-                                                             style={{background: '#000000'}}></div>
-                                                    </li>
-                                                </ul>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div className="product_price">$2000 - $2150</div>
-                                </form>
-                            </div>
+                            <div className="product_price">$2000 - $2150</div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div></div>
         );
     }
 }

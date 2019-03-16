@@ -15,14 +15,6 @@ class Copyright extends Component {
                                                                                         aria-hidden="true"></i> by <a
                                         href="#" target="_blank">Aleksandar & Vladimir</a>
                                 </div>
-                                <div className="logos ml-sm-auto">
-                                    <ul className="logos_list">
-                                        <li><a href="#"><img src="images/logos_1.png" alt=""/></a></li>
-                                        <li><a href="#"><img src="images/logos_2.png" alt=""/></a></li>
-                                        <li><a href="#"><img src="images/logos_3.png" alt=""/></a></li>
-                                        <li><a href="#"><img src="images/logos_4.png" alt=""/></a></li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                     </div>
