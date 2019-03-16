@@ -7,15 +7,16 @@ import {BrowserRouter, NavLink, Route, Switch} from 'react-router-dom';
 
 class App extends React.Component {
     render() {
-      const def = 'client';
+      const DEV_PATH = '/final-assignment/public/client';
+      const PATH = '/client';
+      const DEV = true;
 
         return (
           <BrowserRouter>
               <Switch>
-                <Route exact path="client" component={Home}/>
-                <Route path="client/product/:product_id" component={SingleProduct}/>
-                <Route path="client/category" component={Categories}/>
-                // <Route path="/category/:category_id" component={Categories}/>
+                <Route exact path={DEV ? DEV_PATH : PATH} component={Home}/>
+                <Route path={`${DEV ? DEV_PATH : PATH}/product/:product_id`} component={SingleProduct}/>
+                <Route path={`${DEV ? DEV_PATH : PATH}/category/:category_id`} component={Categories}/>
               </Switch>
           </BrowserRouter>
         );
