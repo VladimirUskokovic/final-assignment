@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 
 import Navigation from '../components/Navigation.jsx';
 import Search from '../components/Search.jsx';
+import global from '../util/global';
 
 class Header extends Component {
     render() {
@@ -12,11 +13,11 @@ class Header extends Component {
                         <div className="row">
                             <div className="col d-flex flex-row">
                                 <div className="top_bar_contact_item">
-                                    <div className="top_bar_icon"><img src="images/phone.png" alt=""/></div>
+                                    <div className="top_bar_icon"><img src={`${global.PATH}/images/phone.png`} alt=""/></div>
                                     +381 65 22 66 530 / +381 64 387 55 99
                                 </div>
                                 <div className="top_bar_contact_item">
-                                    <div className="top_bar_icon"><img src="images/mail.png" alt=""/></div>
+                                    <div className="top_bar_icon"><img src={`${global.PATH}/images/mail.png`} alt=""/></div>
                                     <a href="aleksandar.atlagic.93.14@ict.edu.rs">aleksandar.atlagic.93.14@ict.edu.rs</a> /
                                     <a href="vladimir.uskokovic.324.13@ict.edu.rs"> vladimir.uskokovic.324.13@ict.edu.rs</a>
                                 </div>

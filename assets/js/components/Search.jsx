@@ -1,4 +1,5 @@
 import React, { Component }  from 'react';
+import global from '../util/global';
 
 class Search extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class Search extends Component {
                                 </ul>
                             </div>
                         </div>
-                        <button type="submit" className="header_search_button trans_300" value="Submit"><img src="images/search.png" alt=""/></button>
+                        <button type="submit" className="header_search_button trans_300" value="Submit"><img src={`${global.PATH}/images/search.png`} alt=""/></button>
                     </form>
                 </div>
             </div>
