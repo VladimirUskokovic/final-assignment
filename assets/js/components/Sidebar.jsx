@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
+import Offer from "./ProductList";
 
 class Sidebar extends Component {
     render() {
+        const { categories } = this.props;
         return (
             <div className="shop_sidebar">
                 <div className="sidebar_section">
                     <div className="sidebar_title">Categories</div>
                     <ul className="sidebar_categories">
-                        <li><a href="#">Computers & Laptops</a></li>
-                        <li><a href="#">Cameras & Photos</a></li>
-                        <li><a href="#">Hardware</a></li>
-                        <li><a href="#">Smartphones & Tablets</a></li>
-                        <li><a href="#">TV & Audio</a></li>
-                        <li><a href="#">Gadgets</a></li>
-                        <li><a href="#">Car Electronics</a></li>
-                        <li><a href="#">Video Games & Consoles</a></li>
-                        <li><a href="#">Accessories</a></li>
+                        {categories.map(category => (
+                            <li key={category.id}>
+                                <a href="#">{category.name}
+                                </a>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className="sidebar_section">

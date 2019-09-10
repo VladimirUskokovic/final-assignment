@@ -1,0 +1,60 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "name": "toshibakoludo",
+      "category": "Cameras & Photos",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum. ",
+      "price": "$2000",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "2",
+      "name": "toshibakoludo 2",
+      "category": "Hardware",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+      "price": "$3000",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "3",
+      "name": "toshibakoludo 3",
+      "category": "Smartphones & Tablets",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing. ",
+      "price": "$1000",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "4",
+      "name": "toshibakoludo 4",
+      "category": "TV & Audio",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing. Maecenas fermentum.Maecenas fermentum.",
+      "price": "$1500",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "5",
+      "name": "toshibakoludo 5",
+      "category": "Gadgets",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing. fermentum fermentum.",
+      "price": "$3500",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "6",
+      "name": "toshibakoludo 6",
+      "category": "Video Games & Consoles",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing. fermentum fermentum.",
+      "price": "$2700",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "7",
+      "name": "toshibakoludo 7",
+      "category": "Accessories",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing. fermentum fermentum.",
+      "price": "$1800",
+      "image": "featured_1.png"
+    }
+  ]
+}

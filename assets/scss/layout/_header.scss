@@ -334,6 +334,10 @@
 .custom_list {
   text-align: left;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  max-height: 400px !important;
+  overflow-y: scroll !important;
   padding: 0;
   top: 75px;
   left: -15px;
@@ -357,7 +361,7 @@
     transition: all 0.3s ease;
   }
   li {
-    height: 35px;
+    height: auto;
     padding-left: 15px;
     padding-right: 15px;
     background: #FFFFFF;

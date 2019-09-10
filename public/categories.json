@@ -1,0 +1,81 @@
+{
+  "categories": [
+    {
+      "id": "1",
+      "name": "Cameras & Photos",
+      "specification": [
+        {
+          "Lorem": "ipsum",
+          "Dolor": "Sit",
+          "Amet": "consectetur"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Hardware",
+      "specification": [
+        {
+          "Adipiscing": "elit",
+          "Maecenas": "fermentum",
+          "Lorem": "ipsum"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Smartphones & Tablets",
+      "specification": [
+        {
+          "Dolor": "Sit",
+          "Amet": "consectetur",
+          "Adipiscing": "elit"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "name": "TV & Audio",
+      "specification": [
+        {
+          "Maecenas": "fermentum",
+          "Lorem": "ipsum",
+          "Dolor": "Sit"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Gadgets",
+      "specification": [
+        {
+          "Dolor": "Sit",
+          "Amet": "consectetur",
+          "Adipiscing": "elit"
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Video Games & Consoles",
+      "specification": [
+        {
+          "Maecenas": "fermentum",
+          "Lorem": "ipsum",
+          "Dolor": "Sit"
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Accessories",
+      "specification": [
+        {
+          "Maecenas": "fermentum",
+          "Lorem": "ipsum",
+          "Dolor": "Sit"
+        }
+      ]
+    }
+  ]
+}

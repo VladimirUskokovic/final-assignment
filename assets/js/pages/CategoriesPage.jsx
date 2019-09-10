@@ -1,31 +1,29 @@
 import React, { Component } from 'react';
 import Header from '../layout/Header.jsx';
-import Content from "../layout/Content";
+import CategoriesContent from "../layout/CategoriesContent";
 import Footer from "../layout/Footer";
 import Copyright from "../layout/Copyright";
 import ProductContext from "../ProductContext";
 
-class Home extends Component {
+class CategoriesPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            categories: [],
             products: []
         };
     }
-
-
     render() {
-        function renderPage({products}) {
+        function renderPage({categories, products}) {
             return (
                 <div className="super_container">
                     {/*<div><Header/></div>*/}
-                        <Content products={products}/>
+                    <div><CategoriesContent products={products} categories={categories}/></div>
                     {/*<div><Footer/></div>*/}
                     {/*<div><Copyright/></div>*/}
                 </div>
             );
         }
-
         return (
             <ProductContext.Consumer>
                 {(contextState ) => renderPage(contextState)}
@@ -35,4 +33,4 @@ class Home extends Component {
     }
 }
 
-export default Home
+export default CategoriesPage

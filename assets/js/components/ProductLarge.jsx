@@ -38,18 +38,15 @@ class ProductLarge extends Component {
             </div>
             <div className="col-lg-5 order-3">
                <div className="product_description">
-                  <div className="product_category">Laptops</div>
-                  <div className="product_name">MacBook Air 13</div>
+                 {/*<div className="product_category">{this.props.product.category}</div>*/}
+                  {/*<div className="product_name">{this.props.product.name}</div>*/}
                   <div className="product_text">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing
-                      elit. Maecenas fermentum. laoreet turpis, nec sollicitudin dolor cursus at. Maecenas
-                      aliquet, dolor a faucibus efficitur, nisi tellus cursus urna, eget dictum lacus
-                      turpis.
+                      {/*{this.props.product.description} */}
                     </p>
                   </div>
 
-                  <div className="product_price">$2000 - $2150</div>
+                  {/*<div className="product_price">{this.props.product.price}</div>*/}
               </div>
             </div>
           </div>

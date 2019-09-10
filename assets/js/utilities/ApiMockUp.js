@@ -48,7 +48,7 @@ export default class ApiMockUp {
       "Televizor LG televizor OLED55C9PLA SMART (Crni)  OLED, 55\" (139.7 cm), 4K Ultra HD, DVB-T2/C/S2 + POKLON LG Soundbar SL5Y",
       "Televizor HISENSE televizor H32B5600 (Crni)  LED, 32\" (81.2 cm), 720p HD Ready, DVB-T/T2/C/S/S2"
     ];
-    this.categories = [
+    this.categoriesList = [
       "Laptop računari",
       "Torbe za laptop",
       "Rančevi za laptop",
@@ -668,7 +668,6 @@ export default class ApiMockUp {
       "https://gigatron.rs/img/products/item/image5d3061cec7e80.png",
       "https://gigatron.rs/img/products/item/image5d358a1a3ab28.png"
     ];
-
     this.fillRandomData.bind(this);
     this.fillRandomData();
   }
@@ -721,24 +720,34 @@ export default class ApiMockUp {
 
   fillRandomData() {
     const products =  [];
-
-    console.log(ApiMockUp.getRandomBetween(0, 596));
-
+    let productId = 0;
     for (const productTitle of this.products) {
-      let store = this.stores[ApiMockUp.getRandomBetween(0, 2)];
+      productId++;
       let product = {
+        productId: productId,
         title: productTitle,
-        category: this.categories[ApiMockUp.getRandomBetween(0, 596)],
+        category: this.categoriesList[ApiMockUp.getRandomBetween(0, 596)],
         price: ApiMockUp.getRandomPrice(),
         upc: ApiMockUp.getRandomNumericString(12),
-        store: store,
+        store: this.stores[ApiMockUp.getRandomBetween(0, 2)],
         url: ApiMockUp.getRandomUrl(productTitle),
         image: this.images[ApiMockUp.getRandomBetween(0, 22)]
       };
 
       products.push(product);
     }
+    let categories =  [];
+    let categoryId = 0;
+    for (const categoryName of this.categoriesList) {
+      categoryId++;
+      let category = {
+        categoryId: categoryId,
+        categoryTitle: this.categoriesList[ApiMockUp.getRandomBetween(0, 596)]
+      };
 
+      categories.push(category);
+    }
+    this.categoriesList = categories;
     this.products = products;
   }
 }

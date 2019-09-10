@@ -1,0 +1,28 @@
+{
+  "offers": [
+    {
+      "id": "1",
+      "name": "toshibakoludo",
+      "seller": "Gigatron",
+      "color": "Silver",
+      "price": "$2000",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "2",
+      "name": "toshibakoludo",
+      "seller": "Win win",
+      "color": "Gold",
+      "price": "$1400",
+      "image": "featured_1.png"
+    },
+    {
+      "id": "3",
+      "name": "toshibakoludo",
+      "seller": "ComTrade",
+      "color": "Black",
+      "price": "$1200",
+      "image": "featured_1.png"
+    }
+  ]
+}

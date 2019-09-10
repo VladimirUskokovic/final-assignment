@@ -1,5 +1,6 @@
 import React, { Component }  from 'react';
 import global from '../util/global';
+import ApiMockUp from "../utilities/ApiMockUp";
 
 class Search extends Component {
     constructor(props) {
@@ -14,6 +15,7 @@ class Search extends Component {
     }
 
     render() {
+        const categories = this.props.categories;
         return (
             <div className="header_search_content">
                 <div className="header_search_form_container">
@@ -24,12 +26,11 @@ class Search extends Component {
                                 <span className="custom_dropdown_placeholder clc" onClick={this.toggleCategory.bind(this)}>All Categories</span>
                                 <i className="fas fa-chevron-down"></i>
                                 <ul className={`custom_list clc ${this.state.active ? 'active' : ''}`}>
-                                    <li><a className="clc" href="#">All Categories</a></li>
-                                    <li><a className="clc" href="#">Computers</a></li>
-                                    <li><a className="clc" href="#">Laptops</a></li>
-                                    <li><a className="clc" href="#">Cameras</a></li>
-                                    <li><a className="clc" href="#">Hardware</a></li>
-                                    <li><a className="clc" href="#">Smartphones</a></li>
+                                    {categories && categories.map(category => (
+                                        <li key={category.categoryId}>
+                                            <a className="clc" href="#">{category.categoryTitle}</a>
+                                        </li>
+                                    ))}
                                 </ul>
                             </div>
                         </div>
