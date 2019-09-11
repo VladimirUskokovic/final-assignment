@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import global from '../util/global';
+import { NavLink } from 'react-router-dom';
 
 class Product extends Component {
   render() {
@@ -11,7 +12,11 @@ class Product extends Component {
         <div className="product_content">
 
           <div className="product_name">
-            <div><a href={`${global.PATH}/client/product/${this.props.productId}`}>{this.props.title} </a></div>
+            <div>
+              <NavLink to={`${global.PATH}/client/product/${this.props.productId}`}>
+                {this.props.title}
+              </NavLink>
+            </div>
           </div>
             <div className="product_price discount">{this.props.price} din.</div>
           <div className="product_extras">

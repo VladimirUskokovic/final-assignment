@@ -1,6 +1,6 @@
 import ApiService from "./ApiService";
 
-class CategoriesService extends ApiService{
+class CategoriesService extends ApiService {
 
     getCategories() {
         return this.categories;
@@ -13,12 +13,6 @@ class CategoriesService extends ApiService{
                 'Content-Type': 'application/json'
             }
         }).then(res => res.json());
-    }
-    getProducts(id) {
-
-    }
-    getHome() {
-
     }
 }
 

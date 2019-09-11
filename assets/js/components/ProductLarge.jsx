@@ -20,6 +20,12 @@ class ProductLarge extends Component {
     return this.state.image;
   }
   render() {
+    const { product } = this.props;
+
+    if (!product) {
+      return null;
+    }
+
     let images = this.state.images.map((val, key) => <li onClick={() => {this.setModal(key)}} key={key}><img src={val} alt=""/></li>);
 
     return (
@@ -33,20 +39,20 @@ class ProductLarge extends Component {
             </div>
             <div className="col-lg-5 order-lg-2 order-1">
               <div className="image_selected">
-                <img src={this.state.image}></img>
+                <img src={product.image}/>
                 </div>
             </div>
             <div className="col-lg-5 order-3">
                <div className="product_description">
-                 {/*<div className="product_category">{this.props.product.category}</div>*/}
-                  {/*<div className="product_name">{this.props.product.name}</div>*/}
+                 <div className="product_category">{product.category}</div>
+                  <div className="product_name">{product.title}</div>
                   <div className="product_text">
                     <p>
                       {/*{this.props.product.description} */}
                     </p>
                   </div>
 
-                  {/*<div className="product_price">{this.props.product.price}</div>*/}
+                  <div className="product_price">{product.price}</div>
               </div>
             </div>
           </div>
@@ -56,4 +62,4 @@ class ProductLarge extends Component {
   }
 }
 
-export default ProductLarge
+export default ProductLarge;

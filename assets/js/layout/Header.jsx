@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import Navigation from '../components/Navigation.jsx';
 import Search from '../components/Search.jsx';
 import global from '../util/global';
-import ProductContext from "../ProductContext";
+import ProductContext from "../AppContext";
 
 class Header extends Component {
     constructor(props) {

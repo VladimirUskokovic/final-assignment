@@ -3,7 +3,7 @@ import Header from '../layout/Header.jsx';
 import CategoriesContent from "../layout/CategoriesContent";
 import Footer from "../layout/Footer";
 import Copyright from "../layout/Copyright";
-import ProductContext from "../ProductContext";
+import ProductContext from "../AppContext";
 
 class CategoriesPage extends Component {
     constructor(props) {

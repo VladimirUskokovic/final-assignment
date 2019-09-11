@@ -8,13 +8,12 @@ class ProductContent extends Component {
         super(props);
     }
     render() {
-        const apiMockUp = new ApiMockUp();
-        const product = apiMockUp.products;
-        const { offers } = this.props;
+        const { product, offers } = this.props;
+
         return (
             <div>
                 <div className="single_product">
-                    <ProductLarge productId={product.productId}/>
+                    <ProductLarge product={product}/>
                 </div>
                 <div className="cart_section">
                     <ProductList offers={offers}/>

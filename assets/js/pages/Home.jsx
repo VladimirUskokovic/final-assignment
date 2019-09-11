@@ -1,38 +1,23 @@
 import React, { Component } from 'react';
-import Header from '../layout/Header.jsx';
 import Content from "../layout/Content";
-import Footer from "../layout/Footer";
-import Copyright from "../layout/Copyright";
-import ProductContext from "../ProductContext";
+import ProductContext from "../AppContext";
 
 class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            products: []
-        };
+    componentDidMount () {
+      const { getProducts } = this.context;
+
+      getProducts();
     }
 
-
     render() {
-        function renderPage({products}) {
-            return (
-                <div className="super_container">
-                    {/*<div><Header/></div>*/}
-                        <Content products={products}/>
-                    {/*<div><Footer/></div>*/}
-                    {/*<div><Copyright/></div>*/}
-                </div>
-            );
-        }
-
-        return (
-            <ProductContext.Consumer>
-                {(contextState ) => renderPage(contextState)}
-            </ProductContext.Consumer>
-        );
-
+      const { products } = this.context;
+      return (
+          <div className="super_container">
+              <Content products={products}/>
+          </div>
+      );
     }
 }
 
-export default Home
+Home.contextType = ProductContext;
+export default Home;

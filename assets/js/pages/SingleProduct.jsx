@@ -1,32 +1,27 @@
 import React, { Component } from 'react';
 import ProductContent from "../layout/ProductContent";
-import ProductContext from "../ProductContext";
+import ProductContext from "../AppContext";
 
 class SingleProduct extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            product: [],
-            offers: []
-        };
+    componentDidMount () {
+        const { getProduct } = this.context;
+
+        const productId = parseInt(this.props.match.params.id);
+        getProduct(productId);
     }
+
     render() {
-        function renderPage({product, offers}) {
-            return (
-                <div className="super_container">
-                    {/*<div><Header/></div>*/}
-                    <div><ProductContent product={product} offers={offers}/></div>
-                    {/*<div><Footer/></div>*/}
-                    {/*<div><Copyright/></div>*/}
-                </div>
-            );
-        }
+        const { product, offers } = this.context;
+
         return (
-            <ProductContext.Consumer>
-                {(contextState ) => renderPage(contextState)}
-            </ProductContext.Consumer>
+            <div className="super_container">
+                <div>
+                    <ProductContent product={product} offers={offers}/>
+                </div>
+            </div>
         );
     }
 }
 
-export default SingleProduct
+SingleProduct.contextType = ProductContext;
+export default SingleProduct;

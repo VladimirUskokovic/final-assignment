@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 
-import ProductContext from "./ProductContext";
+import ProductContext from "./AppContext";
 import ProductsService from "./services/ProductsService";
 import CategoriesService from "./services/CategoriesService";
+import ApiMockUp from './utilities/ApiMockUp';
 
 class Main extends Component {
     constructor(props) {
@@ -13,29 +14,31 @@ class Main extends Component {
             products: [],
             product: [],
             offers: [],
-            categories: []
+            categories: [],
+            getProduct: this.getProduct.bind(this),
+            getProducts: this.getProducts.bind(this),
+            getProductsByCategory: this.getProductsByCategory.bind(this),
         };
         this.productService = new ProductsService();
         this.categoriesService = new CategoriesService();
     }
-    componentDidMount() {
-        // const { id } = this.props.match.params;
+
+    getProducts() {
         const products = this.productService.getProducts();
+
         this.setState({products});
-        // ProductsService.getProducts()
-            // .then(({products}) => this.setState({products}))
-            // .catch(error => console.error('Error:', error));
-        // ProductsService.getProduct(id)
-        //     .then((product) => this.setState({product}))
-        //     .catch(error => console.error('Error:', error));
-        // ProductsService.getOffers(id)
-        //     .then(({offers}) => this.setState({offers}))
-        //     .catch(error => console.error('Error:', error));
-        const categories = this.categoriesService.getCategories();
-        this.setState({categories});
-        // CategoriesService.getCategories()
-        //     .then(({categories}) => this.setState({categories}))
-        //     .catch(error => console.error('Error:', error));
+    }
+
+    getProduct(productId) {
+        const product = this.productService.getProduct(productId);
+
+        this.setState({product});
+    }
+
+    getProductsByCategory(categoryId) {
+        const products = this.productService.getProductsByCategory(categoryId);
+
+        this.setState({products});
     }
 
     render() {
@@ -45,7 +48,7 @@ class Main extends Component {
             <div>
                 <ProductContext.Provider value={this.state}>
                     <Header/>
-                        <Component match={this.props.match}/>
+                    <Component {...this.props}/>
                     <Footer/>
                 </ProductContext.Provider>
             </div>
