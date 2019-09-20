@@ -98,10 +98,10 @@
     display: none;
   }
   .logo_container, .wishlist_cart {
-    height: 125px;
+    height: auto;
   }
   .main_nav_content {
-    background: #0e8ce4;
+    background: #fff;
   }
   .menu_trigger_container {
     display: block;
@@ -326,7 +326,7 @@
     display: none;
   }
   .logo_container, .wishlist_cart {
-    height: 72px;
+    height: auto;
   }
   .logo a {
     font-size: 24px;

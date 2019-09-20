@@ -10,7 +10,7 @@ class Categories extends Component {
                         <span></span><span></span><span></span>
                     </div>
                     <div className="cat_menu_text">
-                        categories
+                        Kategorije
                     </div>
                 </div>
                 <ul className="cat_menu">

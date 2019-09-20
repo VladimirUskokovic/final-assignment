@@ -14,6 +14,9 @@ class CategoriesService extends ApiService {
             }
         }).then(res => res.json());
     }
+    getCategory(categoryId) {
+        return this.categories.find(category => category.categoryId === categoryId);
+    }
 }
 
 export default CategoriesService;

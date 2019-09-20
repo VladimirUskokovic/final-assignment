@@ -5,6 +5,10 @@
   -o-transform: translateX(-20px);
   transform: translateX(-20px);
   width: calc(100% + 40px);
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2em;
+  justify-content: space-evenly;
 }
 
 .product_grid_border {
@@ -28,13 +32,22 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  width: 20%;
+  width: calc(25% - 20px);
+  flex-basis: calc(25% - 20px);
   background: #FFFFFF;
   cursor: pointer;
   padding-top: 40px;
   padding-bottom: 0px;
   text-align: center;
-  float: left;
+  left: 0 !important;
+  margin-right: 0 !important;
+  @media only screen and (max-width: 768px) {
+    flex-basis: calc(50% - 20px) !important;
+  }
+  @media only screen and (max-width: 990px) {
+    flex-basis: calc(33% - 20px) !important;
+  }
+
 }
 
 .product_border {

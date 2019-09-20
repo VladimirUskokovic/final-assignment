@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import Sidebar from "./Sidebar";
 import CategoriesMain from "./CategoriesMain";
+import ProductContext from "../AppContext";
+import Header from "../layout/Header";
 
 class Shop extends Component {
-    constructor(props) {
-        super(props);
-    }
+
     render() {
-        const { products } = this.props;
-        const { categories } = this.props;
+
+        const { products, categories, category } = this.props;
         return (
             <div className="shop">
                 <div className="container">
@@ -17,7 +17,7 @@ class Shop extends Component {
                             <Sidebar categories={categories}/>
                         </div>
                         <div className="col-lg-9">
-                            <CategoriesMain />
+                            <CategoriesMain products={products} category={category} />
                         </div>
                     </div>
                 </div>
@@ -25,4 +25,6 @@ class Shop extends Component {
         );
     }
 }
+
+Shop.contextType = ProductContext;
 export default Shop

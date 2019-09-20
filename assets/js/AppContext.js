@@ -5,9 +5,17 @@ const AppContext = createContext({
     product: {},
     offers: [],
     categories: [],
+    brands: [],
     getProduct: () => {},
     getProducts: () => {},
-    getProductsByCategory: () => {}
+    getProductsByCategory: () => {},
+    getCategories: () => {},
+    getCategory: () => {},
+    getBrands: () => {},
+    getProductsByBrand: () => {},
+    getOffers: () => {},
+    sortAscending: () => {},
+    sortDescending: () => {}
 });
 
 export default AppContext;

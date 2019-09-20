@@ -1,36 +1,46 @@
 import React, { Component } from 'react';
-import Header from '../layout/Header.jsx';
 import CategoriesContent from "../layout/CategoriesContent";
-import Footer from "../layout/Footer";
-import Copyright from "../layout/Copyright";
 import ProductContext from "../AppContext";
+import ProductsService from "../services/ProductsService";
+import CategoriesService from "../services/CategoriesService";
 
 class CategoriesPage extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            categories: [],
-            products: []
-        };
+
+    componentDidUpdate(prevProps) {
+        const categoryId = parseInt(this.props.match.params.categoryId);
+        const prevCategoryId = parseInt(prevProps.match.params.categoryId);
+        const { visible } = this.context;
+        if (prevCategoryId !== categoryId) {
+
+            const { getProductsByCategory } = this.context;
+            const { getCategory } = this.context;
+
+            getProductsByCategory(categoryId);
+            getCategory(categoryId);
+
+        }
+    }
+    componentDidMount () {
+        const categoryId = parseInt(this.props.match.params.categoryId);
+        const { getProductsByCategory } = this.context;
+        const { getCategory } = this.context;
+
+        getProductsByCategory(categoryId);
+        getCategory(categoryId);
     }
     render() {
-        function renderPage({categories, products}) {
+
+        const { products, categories, category } = this.context;
             return (
                 <div className="super_container">
                     {/*<div><Header/></div>*/}
-                    <div><CategoriesContent products={products} categories={categories}/></div>
+                    <div><CategoriesContent products={products} categories={categories} category={category}/></div>
                     {/*<div><Footer/></div>*/}
                     {/*<div><Copyright/></div>*/}
                 </div>
             );
-        }
-        return (
-            <ProductContext.Consumer>
-                {(contextState ) => renderPage(contextState)}
-            </ProductContext.Consumer>
-        );
-
     }
 }
 
+CategoriesPage.contextType = ProductContext;
 export default CategoriesPage

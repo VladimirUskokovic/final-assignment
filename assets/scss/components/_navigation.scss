@@ -21,8 +21,13 @@
 }
 
 .main_nav_content {
+  flex-direction: row;
   width: 100%;
   height: 60px;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column !important;
+  }
 }
 
 .cat_menu_container {
@@ -34,6 +39,16 @@
   z-index: 1;
 }
 
+  .header .main_nav .container {
+    @media only screen and (max-width: 1024px) and (min-width: 768px) {
+      max-width: 95% !important;
+    }
+
+  }
+
+.align-left {
+  margin-left: auto;
+}
 .cat_menu_title {
   height: 100%;
 }

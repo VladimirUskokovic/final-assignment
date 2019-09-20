@@ -8,15 +8,11 @@ class CategoriesContent extends Component {
         super(props);
     }
     render() {
-        const { products } = this.props;
-        const { categories } = this.props;
+        const { products, categories, category } = this.props;
         return (
             <div>
                 <div>
-                    <Parallax />
-                </div>
-                <div>
-                    <Shop products={products} categories={categories}/>
+                    <Shop products={products} categories={categories} category={category} />
                 </div>
                 <div>
                     <Brands />

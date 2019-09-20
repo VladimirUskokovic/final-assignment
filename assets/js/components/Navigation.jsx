@@ -1,20 +1,21 @@
 import React, { Component }  from 'react';
 
-import Categories from "./Categories";
-import MainNav from "./MainNav";
-import Product from "../layout/Content";
-import ApiMockUp from "../utilities/ApiMockUp";
+import Search from "./Search";
+import global from "../util/global";
+import {NavLink} from "react-router-dom";
 
 class Navigation extends Component {
 
     render() {
-        const categories = this.props.categories;
+        const { categories } = this.props;
         return (
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <div className="main_nav_content d-flex flex-row">
-                            {/*<Categories/>*/}
+                        <div className="main_nav_content d-flex">
+                            <div className="logo_container">
+                                <div className="logo"><a href="#">CoTech</a></div>
+                            </div>
                             <div className="cat_menu_container">
                                 <div
                                     className="cat_menu_title d-flex flex-row align-items-center justify-content-start">
@@ -22,21 +23,21 @@ class Navigation extends Component {
                                         <span></span><span></span><span></span>
                                     </div>
                                     <div className="cat_menu_text">
-                                        categories
+                                        Kategorije
                                     </div>
                                 </div>
                                 <ul className="cat_menu">
                                 {categories && categories.map(category => (
                                     <li key={category.categoryId}>
-                                        <a href="#">{category.categoryTitle}
-                                            <i className="fas fa-chevron-right ml-auto"></i>
-                                        </a>
+                                        <NavLink to={`${global.PATH}/client/category/${category.categoryId}`}>
+                                            {category.categoryTitle}
+                                        </NavLink>
                                     </li>
                                 ))}
                                 </ul>
                             </div>
-                            <div className="main_nav_menu ml-auto">
-                                <MainNav/>
+                            <div className="col-lg-4 col-6 order-lg-2 order-3 text-lg-left text-right align-left">
+                                <Search/>
 
                             </div>
                         </div>

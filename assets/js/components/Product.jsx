@@ -21,7 +21,7 @@ class Product extends Component {
             <div className="product_price discount">{this.props.price} din.</div>
           <div className="product_extras">
 
-            <button className="product_cart_button">Check Prices</button>
+            <button className="product_cart_button">Uporedite cene</button>
           </div>
         </div>
       </div>

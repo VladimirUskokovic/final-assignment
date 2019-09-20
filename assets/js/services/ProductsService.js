@@ -1,4 +1,6 @@
 import ApiService from "./ApiService";
+import Product from "../components/CategoriesGrid";
+import global from "../util/global";
 
 class ProductsService extends ApiService{
 
@@ -28,8 +30,8 @@ class ProductsService extends ApiService{
         }).then(res => res.json());
     }
 
-    getOffers(id) {
-
+    getOffers(productId) {
+        return this.offers.filter(offer => offer.productId === productId);
         let url = `http://127.0.0.1:8000/offers.json`;
 
         return fetch(url, {
@@ -41,9 +43,18 @@ class ProductsService extends ApiService{
     }
 
     getProductsByCategory(categoryId) {
-        return this.products.filter(product.categoryId === categoryId)
+        return this.products.filter(product => product.categoryId === categoryId);
     }
-
+    getProductsByBrand(brandId) {
+        return this.products.filter(product => product.brandId === brandId);
+    }
+    getBrands() {
+        return this.brands;
+    }
+    searchProduct(term) {
+        const regTerm = new RegExp(term, 'i');
+       return this.products.filter(product => product.title.match(regTerm));
+    }
     getHome() {
 
     }

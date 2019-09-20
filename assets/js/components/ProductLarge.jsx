@@ -48,11 +48,11 @@ class ProductLarge extends Component {
                   <div className="product_name">{product.title}</div>
                   <div className="product_text">
                     <p>
-                      {/*{this.props.product.description} */}
+                      {product.store}
                     </p>
                   </div>
 
-                  <div className="product_price">{product.price}</div>
+                  <div className="product_price">{product.price} din</div>
               </div>
             </div>
           </div>
