@@ -24,24 +24,20 @@ class Specification
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $value;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Category", mappedBy="specification")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Category", mappedBy="specification", cascade={"persist"})
+     * @ORM\JoinTable(name="categories_specifications")
      */
     private $categories;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ProductDetails", inversedBy="specifications")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\OneToMany(targetEntity="App\Entity\SpecificationVariant", mappedBy="specification")
      */
-    private $productDetails;
+    private $specificationVariants;
 
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->specificationVariants = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -57,18 +53,6 @@ class Specification
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getValue(): ?string
-    {
-        return $this->value;
-    }
-
-    public function setValue(string $value): self
-    {
-        $this->value = $value;
 
         return $this;
     }
@@ -101,14 +85,33 @@ class Specification
         return $this;
     }
 
-    public function getProductDetails(): ?ProductDetails
+    /**
+     * @return Collection|SpecificationVariant[]
+     */
+    public function getSpecificationVariants(): Collection
     {
-        return $this->productDetails;
+        return $this->specificationVariants;
     }
 
-    public function setProductDetails(?ProductDetails $productDetails): self
+    public function addSpecificationVariant(SpecificationVariant $specificationVariant): self
     {
-        $this->productDetails = $productDetails;
+        if (!$this->specificationVariants->contains($specificationVariant)) {
+            $this->specificationVariants[] = $specificationVariant;
+            $specificationVariant->setSpecification($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpecificationVariant(SpecificationVariant $specificationVariant): self
+    {
+        if ($this->specificationVariants->contains($specificationVariant)) {
+            $this->specificationVariants->removeElement($specificationVariant);
+            // set the owning side to null (unless already changed)
+            if ($specificationVariant->getSpecification() === $this) {
+                $specificationVariant->setSpecification(null);
+            }
+        }
 
         return $this;
     }
