@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>
+      {% block title %}API Documentations{% endblock %}
+    </title>
+
+    {% block stylesheets %}
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      {% endblock %}
+    </style>
+  </head>
+  <body>
+    {% block body %}
+      <redoc spec-url="{{ path('app_api_documentation_json') }}" expand-responses="200,201"></redoc>
+    {% endblock %}
+  </body>
+
+  {% block javascripts %}
+    <script src="https://cdn.jsdelivr.net/npm/redoc@2.0.0-rc.8/bundles/redoc.standalone.js"></script>
+  {% endblock %}
+</html>
+
+
+

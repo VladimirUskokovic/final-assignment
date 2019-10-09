@@ -2,6 +2,7 @@
 
 namespace App\Repository;
 
+use App\Controller\Api\BaseApiController;
 use App\Entity\Product;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Bridge\Doctrine\RegistryInterface;
@@ -14,9 +15,95 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class ProductRepository extends ServiceEntityRepository
 {
+    private $queryBuilder;
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, Product::class);
+
+        $this->queryBuilder =
+          $this->createQueryBuilder('p')
+            ->join('p.productDetails', 'pd')
+            ->leftJoin('pd.productSpecification', 'ps')
+            ->join('p.category', 'c');
+    }
+
+    public function one()
+    {
+      return $this->queryBuilder
+        ->getQuery()
+        ->getOneOrNullResult();
+    }
+
+    public function collection()
+    {
+      return $this->queryBuilder
+        ->orderBy('p.id')
+        ->setMaxResults(BaseApiController::DEFAULT_NUMBER_OF_ITEMS_PER_PAGE)
+        ->getQuery()
+        ->getResult();
+    }
+
+    public function setLastId($id)
+    {
+      $this->queryBuilder
+        ->andWhere('p.id > :id')
+        ->setParameter('id', $id);
+    }
+
+    public function filterByTitle($title)
+    {
+      $this->queryBuilder
+        ->andWhere('pd.title LIKE :title')
+        ->setParameter('title', "%{$title}%");
+    }
+
+    public function filterBySpecification($name, $value)
+    {
+      $this->queryBuilder
+        ->andWhere("ps.value LIKE :{$name}")
+        ->setParameter($name, "%{$value}%");
+
+      return $this;
+    }
+
+    public function filterByCategory($category)
+    {
+      $this->queryBuilder
+        ->andWhere('c.id = :category')
+        ->setParameter('category', $category);
+
+      return $this;
+    }
+
+  /**
+   * @var integer
+   * @return Product|null
+   * @throws
+   */
+  public function getProduct($id)
+  {
+    return $this->createQueryBuilder('p')
+      ->join('p.productDetails', 'pd')
+      ->join('p.category', 'c')
+      ->join('p.offers', 'o')
+      ->andWhere('p.id = :id')
+      ->setParameter('id', $id)
+      ->getQuery()
+      ->getOneOrNullResult();
+  }
+
+  /**
+   * @return Product[]
+   */
+    public function getProducts(): array
+    {
+      return $this->createQueryBuilder('p')
+        ->join('p.productDetails', 'pd')
+        ->join('p.category', 'c')
+        ->setMaxResults(20)
+        ->getQuery()
+        ->getResult();
     }
 
 //    /**
