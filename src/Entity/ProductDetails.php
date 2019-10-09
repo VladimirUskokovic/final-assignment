@@ -34,13 +34,13 @@ class ProductDetails
     private $images = [];
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Specification", mappedBy="productDetails", orphanRemoval=true)
+     * @ORM\ManyToMany(targetEntity="App\Entity\SpecificationVariant", inversedBy="productDetails", cascade={"persist"})
      */
-    private $specifications;
+    private $productSpecification;
 
     public function __construct()
     {
-        $this->specifications = new ArrayCollection();
+        $this->productSpecification = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -85,31 +85,26 @@ class ProductDetails
     }
 
     /**
-     * @return Collection|Specification[]
+     * @return Collection|SpecificationVariant[]
      */
-    public function getSpecifications(): Collection
+    public function getProductSpecification(): Collection
     {
-        return $this->specifications;
+        return $this->productSpecification;
     }
 
-    public function addSpecification(Specification $specification): self
+    public function addProductSpecification(SpecificationVariant $productSpecification): self
     {
-        if (!$this->specifications->contains($specification)) {
-            $this->specifications[] = $specification;
-            $specification->setProductDetails($this);
+        if (!$this->productSpecification->contains($productSpecification)) {
+            $this->productSpecification[] = $productSpecification;
         }
 
         return $this;
     }
 
-    public function removeSpecification(Specification $specification): self
+    public function removeProductSpecification(SpecificationVariant $productSpecification): self
     {
-        if ($this->specifications->contains($specification)) {
-            $this->specifications->removeElement($specification);
-            // set the owning side to null (unless already changed)
-            if ($specification->getProductDetails() === $this) {
-                $specification->setProductDetails(null);
-            }
+        if ($this->productSpecification->contains($productSpecification)) {
+            $this->productSpecification->removeElement($productSpecification);
         }
 
         return $this;

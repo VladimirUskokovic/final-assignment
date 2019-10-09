@@ -48,7 +48,7 @@ class Offer
     private $seller;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="offers")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="offers", cascade={"persist"})
      */
     private $product;
 
