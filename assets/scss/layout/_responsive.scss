@@ -239,7 +239,14 @@
 9. 768px
 ************/
 
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+  .search {
+    display: block;
+    margin: 0;
+    flex: 0 0 44% !important;
+    max-width: 100% !important;
+  }
+}
 
 /************
 10. 767px

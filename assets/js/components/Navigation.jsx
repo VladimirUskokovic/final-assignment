@@ -28,15 +28,15 @@ class Navigation extends Component {
                                 </div>
                                 <ul className="cat_menu">
                                 {categories && categories.map(category => (
-                                    <li key={category.categoryId}>
-                                        <NavLink to={`${global.PATH}/client/category/${category.categoryId}`}>
-                                            {category.categoryTitle}
+                                    <li key={category.id}>
+                                        <NavLink to={`${global.PATH}/client/category/${category.id}`}>
+                                            {category.name}
                                         </NavLink>
                                     </li>
                                 ))}
                                 </ul>
                             </div>
-                            <div className="col-lg-4 col-6 order-lg-2 order-3 text-lg-left text-right align-left">
+                            <div className="col-lg-4 col-6 order-lg-2 order-3 text-lg-left text-right align-left search">
                                 <Search/>
 
                             </div>

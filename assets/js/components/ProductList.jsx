@@ -16,9 +16,8 @@ class ProductList extends Component {
                             <div className="cart_title">Uporedite cene</div>
                             <div className="cart_items">
                                 <ul className="cart_list">
-                                    {offers.map(offer => (
-                                        <Offer name={offer.offerName} price={offer.price} seller={offer.store}
-                                               color={offer.color} image={offer.image} key={offer.offerId}/>
+                                    {offers.map((offer, index) => (
+                                        <Offer key={index} offer={offer}/>
                                     ))}
                                 </ul>
                             </div>

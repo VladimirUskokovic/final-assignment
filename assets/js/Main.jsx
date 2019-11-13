@@ -13,7 +13,7 @@ class Main extends Component {
         super(props);
         this.state = {
             products: [],
-            product: [],
+            product: null,
             category: [],
             offers: [],
             categories: [],
@@ -43,9 +43,12 @@ class Main extends Component {
     }
 
     getProduct(productId) {
-        const product = this.productService.getProduct(productId);
+        this.productService
+            .getProduct(productId)
+            .then(product => {
+                this.setState({product});
+            });
 
-        this.setState({product});
     }
     getCategory(categoryId) {
         const category = this.categoriesService.getCategory(categoryId);
@@ -53,13 +56,19 @@ class Main extends Component {
         this.setState({category});
     }
     getCategories() {
-        const categories = this.categoriesService.getCategories();
-
-        this.setState({categories});
+        this.categoriesService.getCategories()
+            .then(({items}) => {
+                this.setState({categories: items});
+            });
+        // const categories = this.categoriesService.getCategories();
+        //
+        // this.setState({categories});
     }
     getProductsByCategory(categoryId) {
-        const products = this.productService.getProductsByCategory(categoryId);
-        this.setState({products});
+        this.productService.getProductsByCategory(categoryId)
+            .then(({items}) => {
+                this.setState({products: items, visible: 4});
+            });
     }
     getProductsByBrand(brandId) {
         const products = this.productService.getProductsByBrand(brandId);
@@ -86,8 +95,11 @@ class Main extends Component {
         this.setState({ products });
     }
     search(searchInput) {
-        const products = this.productService.searchProduct(searchInput);
-        this.setState({ products });
+        this.productService
+            .searchProduct(searchInput)
+            .then(({items}) => {
+                this.setState({products: items, visible: 4});
+            });
     };
     loadMore() {
         this.setState((prev) => {

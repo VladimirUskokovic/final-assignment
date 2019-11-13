@@ -41,13 +41,16 @@
   text-align: center;
   left: 0 !important;
   margin-right: 0 !important;
-  @media only screen and (max-width: 768px) {
-    flex-basis: calc(50% - 20px) !important;
-  }
+  margin-bottom: 1em !important;
   @media only screen and (max-width: 990px) {
-    flex-basis: calc(33% - 20px) !important;
+    flex-basis: calc(33% - 20px);
   }
-
+  @media only screen and (max-width: 768px) {
+    flex-basis: calc(50% - 20px);
+  }
+  @media only screen and (max-width: 450px) {
+    flex-basis: calc(100% - 20px);
+  }
 }
 
 .product_border {
@@ -84,7 +87,10 @@
 .product_item.discount {
   color: #df3b3b;
 }
-
+.product_cart_button {
+  display: block;
+  line-height: 48px;
+}
 .product_price span {
   position: relative;
   font-size: 12px;

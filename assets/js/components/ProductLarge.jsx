@@ -5,7 +5,7 @@ class ProductLarge extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: `${global.PATH}/images/single_1.jpg`,
+      image: 0,
       images: [
         `${global.PATH}/images/single_1.jpg`,
         `${global.PATH}/images/single_2.jpg`,
@@ -14,7 +14,7 @@ class ProductLarge extends Component {
     }
   }
   setModal(imageKey) {
-    this.setState({ image: this.state.images[imageKey] });
+    this.setState({ image: imageKey });
   }
   getImage() {
     return this.state.image;
@@ -26,7 +26,7 @@ class ProductLarge extends Component {
       return null;
     }
 
-    let images = this.state.images.map((val, key) => <li onClick={() => {this.setModal(key)}} key={key}><img src={val} alt=""/></li>);
+    let images = product.images.map((val, key) => <li onClick={() => {this.setModal(key)}} key={key}><img src={val} alt=""/></li>);
 
     return (
       <div>
@@ -34,25 +34,25 @@ class ProductLarge extends Component {
           <div className="row">
             <div className="col-lg-2 order-lg-1 order-2">
               <ul className="image_list">
-                {images}
+                {images.slice(0, 3)}
               </ul>
             </div>
             <div className="col-lg-5 order-lg-2 order-1">
               <div className="image_selected">
-                <img src={product.image}/>
+                <img src={product.images[this.state.image]}/>
                 </div>
             </div>
             <div className="col-lg-5 order-3">
                <div className="product_description">
-                 <div className="product_category">{product.category}</div>
-                  <div className="product_name">{product.title}</div>
+                 <div className="product_category">{product.category.name}</div>
+                  <div className="product_name">{product.name}</div>
                   <div className="product_text">
                     <p>
-                      {product.store}
+                      {/*{product.store}*/}
                     </p>
                   </div>
 
-                  <div className="product_price">{product.price} din</div>
+                  {/*<div className="product_price">{product.price} din</div>*/}
               </div>
             </div>
           </div>

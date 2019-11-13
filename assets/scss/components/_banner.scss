@@ -33,10 +33,19 @@
   @media only screen and (max-width: 1200px) {
     font-size: 32px !important;
   }
+  @media only screen and (max-width: 770px) {
+    font-size: 24px !important;
+  }
+  @media only screen and (max-width: 450px) {
+    font-size: 18px !important;
+  }
 }
 .offset-lg-4 {
   @media only screen and (max-width: 1200px) {
     margin-left: 14.333333% !important;
+  }
+  @media only screen and (max-width: 600px) {
+    margin-left: 2% !important;
   }
 }
 .banner_price {

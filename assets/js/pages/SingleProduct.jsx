@@ -8,17 +8,15 @@ class SingleProduct extends Component {
 
         const productId = parseInt(this.props.match.params.id);
         getProduct(productId);
-
-        const { getOffers } = this.context;
-        getOffers(productId);
     }
 
     render() {
-        const { product, offers } = this.context;
+        const { product } = this.context;
+
         return (
             <div className="super_container">
                 <div>
-                    <ProductContent product={product} offers={offers}/>
+                    <ProductContent product={product} offers={product ? product.offers : []}/>
                 </div>
             </div>
         );

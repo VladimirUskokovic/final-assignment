@@ -11,13 +11,15 @@ class ProductContent extends Component {
     render() {
         const { product, offers } = this.props;
 
+        console.log(product);
+
         return (
             <div>
                 <div className="single_product">
                     <ProductLarge product={product}/>
                 </div>
                 <div>
-                    <Specifications/>
+                    <Specifications specifications={product ? product.specifications : []}/>
                 </div>
 
                 <div className="cart_section">

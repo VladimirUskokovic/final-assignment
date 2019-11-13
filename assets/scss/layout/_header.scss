@@ -228,6 +228,11 @@
 .logo_container {
   height:auto;
   margin-right: 1em;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .logo {

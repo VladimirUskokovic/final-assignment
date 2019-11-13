@@ -5,6 +5,13 @@
   -ms-transform: translateX(-37px);
   -o-transform: translateX(-37px);
   transform: translateX(-37px);
+  @media only screen and (max-width: 990px) {
+   display: flex;
+    flex-wrap: wrap;
+  }
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .sidebar_title {
@@ -87,6 +94,9 @@
 
 .brands_subtitle {
   margin-top: 27px;
+  @media only screen and (max-width: 990px) {
+    margin-top: 0;
+  }
 }
 
 .brands_list {

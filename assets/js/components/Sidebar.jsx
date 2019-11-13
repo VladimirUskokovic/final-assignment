@@ -14,9 +14,9 @@ class Sidebar extends Component {
                     <div className="sidebar_title">Kategorije</div>
                     <ul className="sidebar_categories">
                         {categories && categories.map(category => (
-                            <li key={category.categoryId}>
-                                <NavLink to={`${global.PATH}/client/category/${category.categoryId}`}>
-                                    {category.categoryTitle}
+                            <li key={category.id}>
+                                <NavLink to={`${global.PATH}/client/category/${category.id}`}>
+                                    {category.name}
                                 </NavLink>
                             </li>
                         ))}
