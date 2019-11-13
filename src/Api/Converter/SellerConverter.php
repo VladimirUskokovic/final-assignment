@@ -29,5 +29,23 @@ class SellerConverter extends AbstractConverter
 
     $model->name = $seller->getName();
     $model->url = $seller->getLink();
+    $model->image = $this->getLogoForSeller($seller->getName());
+  }
+
+  protected function getLogoForSeller($seller)
+  {
+    if ($seller === 'Gigatron') {
+      return 'logo-giga.svg';
+    }
+
+    if ($seller === 'WinWin') {
+      return 'winwin-logo.png';
+    }
+
+    if ($seller === 'ComTrade') {
+      return 'comtradeshop_logo.png';
+    }
+
+    return '';
   }
 }

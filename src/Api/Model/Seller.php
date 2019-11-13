@@ -20,4 +20,10 @@ class Seller
    * @OA\Property()
    */
   public $url;
+
+  /**
+   * @var string
+   * @OA\Property()
+   */
+  public $image;
 }

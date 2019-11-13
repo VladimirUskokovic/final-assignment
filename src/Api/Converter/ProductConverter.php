@@ -49,7 +49,6 @@ class ProductConverter extends AbstractConverter
     $model->name = $product->getProductDetails()->getTitle();
     $model->upc = $product->getUpc();
     $model->images = $product->getProductDetails()->getImages();
-    $model->category = $this->categoryConverter->convert(['category' => $product->getCategory()]);
     $model->description = $product->getProductDetails()->getDescription();
 
     $specifications = [];
@@ -68,6 +67,10 @@ class ProductConverter extends AbstractConverter
       $model->offers = $offers;
     } else {
       unset($model->offers);
+    }
+
+    if ($product->getCategory()) {
+      $model->category = $this->categoryConverter->convert(['category' => $product->getCategory()]);
     }
   }
 }

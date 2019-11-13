@@ -76,6 +76,8 @@ abstract class BaseApiController extends AbstractController
     public const FILTER_BY_PRODUCT = 'product';
     public const FILTER_BY_FROM_DATE = 'fromDate';
     public const LAST_ID = 'lastId';
+    public const SORT_BY = 'sortBy';
+    public const SORT_DIR = 'dir';
 
     public const DEFAULT_NUMBER_OF_ITEMS_PER_PAGE = 20;
 

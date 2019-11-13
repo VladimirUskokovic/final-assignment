@@ -210,6 +210,41 @@
                 }
             }
         },
+        "/top-products": {
+            "get": {
+                "tags": [
+                    "Product"
+                ],
+                "summary": "List Top 20 Products",
+                "operationId": "top-products-list",
+                "responses": {
+                    "200": {
+                        "description": "Top 20 products list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "items": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/Product"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "$ref": "#/components/responses/404"
+                    },
+                    "500": {
+                        "$ref": "#/components/responses/500"
+                    }
+                }
+            }
+        },
         "/products": {
             "get": {
                 "tags": [
@@ -252,6 +287,24 @@
                         "required": false,
                         "schema": {
                             "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "sortBy",
+                        "in": "query",
+                        "description": "Set order by param, currently can set price or name",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "dir",
+                        "in": "query",
+                        "description": "Set order by direction, allowed values are asc or desc",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
                         }
                     }
                 ],
@@ -324,36 +377,6 @@
     },
     "components": {
         "schemas": {
-            "Datetime": {
-                "properties": {
-                    "date": {
-                        "type": "string"
-                    },
-                    "timezone_type": {
-                        "type": "integer"
-                    },
-                    "timezone": {
-                        "type": "string"
-                    }
-                },
-                "type": "object"
-            },
-            "Exception": {
-                "properties": {
-                    "error": {
-                        "properties": {
-                            "code": {
-                                "type": "integer"
-                            },
-                            "message": {
-                                "type": "string"
-                            }
-                        },
-                        "type": "object"
-                    }
-                },
-                "type": "object"
-            },
             "Category": {
                 "properties": {
                     "id": {
@@ -450,6 +473,9 @@
                     },
                     "url": {
                         "type": "string"
+                    },
+                    "image": {
+                        "type": "string"
                     }
                 },
                 "type": "object"
@@ -461,6 +487,36 @@
                     },
                     "value": {
                         "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Datetime": {
+                "properties": {
+                    "date": {
+                        "type": "string"
+                    },
+                    "timezone_type": {
+                        "type": "integer"
+                    },
+                    "timezone": {
+                        "type": "string"
+                    }
+                },
+                "type": "object"
+            },
+            "Exception": {
+                "properties": {
+                    "error": {
+                        "properties": {
+                            "code": {
+                                "type": "integer"
+                            },
+                            "message": {
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
                     }
                 },
                 "type": "object"

@@ -25,6 +25,7 @@ class ProductRepository extends ServiceEntityRepository
           $this->createQueryBuilder('p')
             ->join('p.productDetails', 'pd')
             ->leftJoin('pd.productSpecification', 'ps')
+            ->join('p.offers', 'o')
             ->join('p.category', 'c');
     }
 
@@ -38,7 +39,7 @@ class ProductRepository extends ServiceEntityRepository
     public function collection()
     {
       return $this->queryBuilder
-        ->orderBy('p.id')
+        ->addOrderBy('p.id')
         ->setMaxResults(BaseApiController::DEFAULT_NUMBER_OF_ITEMS_PER_PAGE)
         ->getQuery()
         ->getResult();
@@ -49,6 +50,17 @@ class ProductRepository extends ServiceEntityRepository
       $this->queryBuilder
         ->andWhere('p.id > :id')
         ->setParameter('id', $id);
+    }
+
+    public function setOrderBy($orderBy, $dir): void
+    {
+      if ($orderBy === 'price') {
+        $this->queryBuilder
+          ->addOrderBy('o.price', $dir);
+      } else if ($orderBy === 'name') {
+        $this->queryBuilder
+          ->addOrderBy('pd.title', $dir);
+      }
     }
 
     public function filterByTitle($title)
@@ -85,7 +97,7 @@ class ProductRepository extends ServiceEntityRepository
   {
     return $this->createQueryBuilder('p')
       ->join('p.productDetails', 'pd')
-      ->join('p.category', 'c')
+      ->leftJoin('p.category', 'c')
       ->join('p.offers', 'o')
       ->andWhere('p.id = :id')
       ->setParameter('id', $id)
@@ -105,6 +117,21 @@ class ProductRepository extends ServiceEntityRepository
         ->getQuery()
         ->getResult();
     }
+
+  /**
+   * @return Product[]
+   */
+  public function getTopProducts(): array
+  {
+    return $this->createQueryBuilder('p')
+      ->leftJoin('p.category', 'c')
+      ->join('p.productDetails', 'pd')
+      ->join('p.offers', 'o')
+      ->orderBy('o.price')
+      ->setMaxResults(20)
+      ->getQuery()
+      ->getResult();
+  }
 
 //    /**
 //     * @return Product[] Returns an array of Product objects
