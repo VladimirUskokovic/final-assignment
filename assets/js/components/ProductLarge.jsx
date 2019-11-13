@@ -5,7 +5,7 @@ class ProductLarge extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      image: `${global.PATH}/images/single_1.jpg`,
+      image: 0,
       images: [
         `${global.PATH}/images/single_1.jpg`,
         `${global.PATH}/images/single_2.jpg`,
@@ -14,13 +14,19 @@ class ProductLarge extends Component {
     }
   }
   setModal(imageKey) {
-    this.setState({ image: this.state.images[imageKey] });
+    this.setState({ image: imageKey });
   }
   getImage() {
     return this.state.image;
   }
   render() {
-    let images = this.state.images.map((val, key) => <li onClick={() => {this.setModal(key)}} key={key}><img src={val} alt=""/></li>);
+    const { product } = this.props;
+
+    if (!product) {
+      return null;
+    }
+
+    let images = product.images.map((val, key) => <li onClick={() => {this.setModal(key)}} key={key}><img src={val} alt=""/></li>);
 
     return (
       <div>
@@ -28,28 +34,25 @@ class ProductLarge extends Component {
           <div className="row">
             <div className="col-lg-2 order-lg-1 order-2">
               <ul className="image_list">
-                {images}
+                {images.slice(0, 3)}
               </ul>
             </div>
             <div className="col-lg-5 order-lg-2 order-1">
               <div className="image_selected">
-                <img src={this.state.image}></img>
+                <img src={product.images[this.state.image]}/>
                 </div>
             </div>
             <div className="col-lg-5 order-3">
                <div className="product_description">
-                  <div className="product_category">Laptops</div>
-                  <div className="product_name">MacBook Air 13</div>
+                 <div className="product_category">{product.category.name}</div>
+                  <div className="product_name">{product.name}</div>
                   <div className="product_text">
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing
-                      elit. Maecenas fermentum. laoreet turpis, nec sollicitudin dolor cursus at. Maecenas
-                      aliquet, dolor a faucibus efficitur, nisi tellus cursus urna, eget dictum lacus
-                      turpis.
+                      {/*{product.store}*/}
                     </p>
                   </div>
 
-                  <div className="product_price">$2000 - $2150</div>
+                  {/*<div className="product_price">{product.price} din</div>*/}
               </div>
             </div>
           </div>
@@ -59,4 +62,4 @@ class ProductLarge extends Component {
   }
 }
 
-export default ProductLarge
+export default ProductLarge;

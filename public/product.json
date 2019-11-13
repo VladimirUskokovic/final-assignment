@@ -1,0 +1,11 @@
+
+{
+  "id": "1",
+  "name": "toshibakoludo",
+  "category": "Cameras & Photos",
+  "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas fermentum. ",
+  "price": "$2000",
+  "bigImage": "single_1.png",
+  "smallImage": "single_2.png",
+  "smallImageSecond": "single_2.png"
+}

@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
-import Header from '../layout/Header.jsx';
 import Content from "../layout/Content";
-import Footer from "../layout/Footer";
-import Copyright from "../layout/Copyright";
+import ProductContext from "../AppContext";
 
 class Home extends Component {
+    componentDidMount () {
+      const { getProducts } = this.context;
+
+      getProducts();
+    }
+
     render() {
-        return (
-            <div className="super_container">
-                <div><Header/></div>
-                <div><Content/></div>
-                <div><Footer/></div>
-                <div><Copyright/></div>
-            </div>
-        );
+      const { products } = this.context;
+      return (
+          <div className="super_container">
+              <Content products={products}/>
+          </div>
+      );
     }
 }
 
-export default Home
+Home.contextType = ProductContext;
+export default Home;

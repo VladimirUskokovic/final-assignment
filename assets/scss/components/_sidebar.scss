@@ -5,6 +5,13 @@
   -ms-transform: translateX(-37px);
   -o-transform: translateX(-37px);
   transform: translateX(-37px);
+  @media only screen and (max-width: 990px) {
+   display: flex;
+    flex-wrap: wrap;
+  }
+  @media only screen and (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .sidebar_title {
@@ -87,6 +94,9 @@
 
 .brands_subtitle {
   margin-top: 27px;
+  @media only screen and (max-width: 990px) {
+    margin-top: 0;
+  }
 }
 
 .brands_list {
@@ -95,13 +105,19 @@
 
 .brand {
   margin-bottom: 7px;
-  a {
+  display: flex;
+  align-items: center;
+  input {
+    margin-right: 1em;
+  }
+  label  {
     color: rgba(0, 0, 0, 0.5);
     -webkit-transition: all 200ms ease;
     -moz-transition: all 200ms ease;
     -ms-transition: all 200ms ease;
     -o-transition: all 200ms ease;
     transition: all 200ms ease;
+    margin-bottom: 0;
     &:hover {
       color: #0e8ce4;
     }
