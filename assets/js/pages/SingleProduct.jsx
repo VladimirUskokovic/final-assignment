@@ -1,20 +1,27 @@
 import React, { Component } from 'react';
-import Header from '../layout/Header.jsx';
 import ProductContent from "../layout/ProductContent";
-import Footer from "../layout/Footer";
-import Copyright from "../layout/Copyright";
+import ProductContext from "../AppContext";
 
 class SingleProduct extends Component {
+    componentDidMount () {
+        const { getProduct } = this.context;
+
+        const productId = parseInt(this.props.match.params.id);
+        getProduct(productId);
+    }
+
     render() {
+        const { product } = this.context;
+
         return (
             <div className="super_container">
-                <div><Header/></div>
-                <div><ProductContent/></div>
-                <div><Footer/></div>
-                <div><Copyright/></div>
+                <div>
+                    <ProductContent product={product} offers={product ? product.offers : []}/>
+                </div>
             </div>
         );
     }
 }
 
-export default SingleProduct
+SingleProduct.contextType = ProductContext;
+export default SingleProduct;

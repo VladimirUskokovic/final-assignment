@@ -226,7 +226,13 @@
 }
 
 .logo_container {
-  height: 175px;
+  height:auto;
+  margin-right: 1em;
+  @media only screen and (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 .logo {
@@ -271,7 +277,7 @@
 .header_search_input {
   display: block;
   position: relative;
-  width: calc((100% - 50px) * 0.601);
+  width: calc((100% - 10px) * 0.601);
   height: 100%;
   line-height: 50px;
   border: none !important;
@@ -334,6 +340,10 @@
 .custom_list {
   text-align: left;
   position: absolute;
+  display: flex;
+  flex-direction: column;
+  max-height: 400px !important;
+  overflow-y: scroll !important;
   padding: 0;
   top: 75px;
   left: -15px;
@@ -357,7 +367,7 @@
     transition: all 0.3s ease;
   }
   li {
-    height: 35px;
+    height: auto;
     padding-left: 15px;
     padding-right: 15px;
     background: #FFFFFF;

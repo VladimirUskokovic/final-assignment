@@ -1,19 +1,27 @@
 import React, { Component } from 'react';
+import AppContext from "../AppContext";
+import CategoriesPage from "../pages/CategoriesPage";
 
-class CategoriesMain extends Component {
+class CategoriesBar extends Component {
+
     render() {
+        const { products } = this.props;
+        const { category } = this.props;
         return (
             <div className="shop_bar clearfix">
-                <div className="shop_product_count"><span>186</span> products found</div>
+                <div className="shop_product_count"><p> Kategorija:  <b>{category.categoryTitle}</b></p><span>{products.length}</span> proizvoda pronadjeno </div>
                 <div className="shop_sorting">
-                    <span>Sort by:</span>
+                    <span>Sortiranje po:</span>
                     <ul>
                         <li>
-                            <span className="sorting_text">highest rated<i className="fas fa-chevron-down"></i></span>
+                            <span className="sorting_text">Izaberi<i className="fas fa-chevron-down"></i></span>
                             <ul>
-                                <li className="shop_sorting_button" data-isotope-option='{ "sortBy": "original-order" }'>highest rated</li>
-                                <li className="shop_sorting_button" data-isotope-option='{ "sortBy": "name" }'>name</li>
-                                <li className="shop_sorting_button" data-isotope-option='{ "sortBy": "price" }'>price</li>
+                                <li className="shop_sorting_button"
+                                    onClick={this.context.sortAscending}>Cena Rastuce</li>
+                                <li className="shop_sorting_button"
+                                    onClick={this.context.sortDescending}>Cena Opadajuce</li>
+                                <li className="shop_sorting_button">Po Imenu [A-Z]</li>
+                                <li className="shop_sorting_button">Po Imenu [Z-A]</li>
                             </ul>
                         </li>
                     </ul>
@@ -22,4 +30,5 @@ class CategoriesMain extends Component {
         );
     }
 }
-export default CategoriesMain
+CategoriesBar.contextType = AppContext;
+export default CategoriesBar

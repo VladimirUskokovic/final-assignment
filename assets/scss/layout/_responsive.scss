@@ -117,10 +117,10 @@
     display: none;
   }
   .logo_container, .wishlist_cart {
-    height: 125px;
+    height: auto;
   }
   .main_nav_content {
-    background: #0e8ce4;
+    background: #fff;
   }
   .menu_trigger_container {
     display: block;
@@ -239,7 +239,14 @@
 9. 768px
 ************/
 
-@media only screen and (max-width: 768px) {}
+@media only screen and (max-width: 768px) {
+  .search {
+    display: block;
+    margin: 0;
+    flex: 0 0 44% !important;
+    max-width: 100% !important;
+  }
+}
 
 /************
 10. 767px
@@ -320,7 +327,7 @@
     display: none;
   }
   .logo_container, .wishlist_cart {
-    height: 72px;
+    height: auto;
   }
   .logo a {
     font-size: 24px;

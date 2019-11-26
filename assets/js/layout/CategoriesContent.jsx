@@ -4,14 +4,15 @@ import Shop from "../components/Shop";
 import Brands from "../components/Brands";
 
 class CategoriesContent extends Component {
+    constructor(props) {
+        super(props);
+    }
     render() {
+        const { products, categories, category } = this.props;
         return (
             <div>
                 <div>
-                    <Parallax />
-                </div>
-                <div>
-                    <Shop />
+                    <Shop products={products} categories={categories} category={category} />
                 </div>
                 <div>
                     <Brands />
