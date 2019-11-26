@@ -40,6 +40,7 @@ class ProductRepository extends ServiceEntityRepository
     {
       return $this->queryBuilder
         ->addOrderBy('p.id')
+        ->groupBy('p.id')
         ->setMaxResults(BaseApiController::DEFAULT_NUMBER_OF_ITEMS_PER_PAGE)
         ->getQuery()
         ->getResult();
@@ -128,6 +129,7 @@ class ProductRepository extends ServiceEntityRepository
       ->join('p.productDetails', 'pd')
       ->join('p.offers', 'o')
       ->orderBy('o.price')
+      ->groupBy('p.id')
       ->setMaxResults(20)
       ->getQuery()
       ->getResult();
