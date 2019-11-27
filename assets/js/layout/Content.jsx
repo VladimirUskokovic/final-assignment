@@ -23,9 +23,9 @@ class Content extends Component {
                             <div className="col">
                                 <div className="featured">
                                     {products && products.map(product => (
-                                        <Product title={product.title} category={product.category}
-                                                 price={product.price} image={product.image}
-                                                 key={product.productId} productId={product.productId}
+                                        <Product title={product.name} category={product.category}
+                                                 price={product.price} image={product.images[0]}
+                                                 key={product.id} productId={product.id}
                                                  store={product.store}/>
                                     ))}
                                 </div>

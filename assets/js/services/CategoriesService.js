@@ -9,19 +9,19 @@ class CategoriesService extends ApiService {
             .then(response => response.json());
         // return this.categories;
 
-        let url = 'http://127.0.0.1:8000/categories.json';
-
-        return fetch(url, {
-            method: 'GET',
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        }).then(res => res.json());
+        // let url = 'http://127.0.0.1:8000/categories.json';
+        //
+        // return fetch(url, {
+        //     method: 'GET',
+        //     headers:{
+        //         'Content-Type': 'application/json'
+        //     }
+        // }).then(res => res.json());
     }
     getCategory(categoryId) {
-        // return fetch(`${API_ENDPOINT}?category=${categoryId}`)
-        //     .then(response => response.json());
-        return this.categories.find(category => category.categoryId === categoryId);
+        return fetch(`${API_ENDPOINT}?category=${categoryId}`)
+            .then(response => response.json());
+        // return this.categories.find(category => category.categoryId === categoryId);
     }
 }
 

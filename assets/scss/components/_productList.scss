@@ -38,8 +38,11 @@
   width: 133px;
   height: 133px;
   float: left;
+  display: flex;
+  align-items: center;
   img {
     max-width: 100%;
+    filter: drop-shadow(1px 1px 1px #000);
   }
 }
 

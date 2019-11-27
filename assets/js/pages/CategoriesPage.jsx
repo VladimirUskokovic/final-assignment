@@ -9,14 +9,17 @@ class CategoriesPage extends Component {
     componentDidUpdate(prevProps) {
         const categoryId = parseInt(this.props.match.params.categoryId);
         const prevCategoryId = parseInt(prevProps.match.params.categoryId);
+        // const order =  this.context;
         const { visible } = this.context;
         if (prevCategoryId !== categoryId) {
 
             const { getProductsByCategory } = this.context;
             const { getCategory } = this.context;
+            // const { sortProducts } = this.context;
 
             getProductsByCategory(categoryId);
             getCategory(categoryId);
+            // sortProducts();
 
         }
     }
@@ -24,9 +27,11 @@ class CategoriesPage extends Component {
         const categoryId = parseInt(this.props.match.params.categoryId);
         const { getProductsByCategory } = this.context;
         const { getCategory } = this.context;
+        // const { sortProducts } = this.context;
 
         getProductsByCategory(categoryId);
         getCategory(categoryId);
+        // sortProducts();
     }
     render() {
 

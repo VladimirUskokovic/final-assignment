@@ -18,7 +18,7 @@ class Product extends Component {
               </NavLink>
             </div>
           </div>
-            <div className="product_price discount">{this.props.price} din.</div>
+            <div className="product_price discount">od { this.props.offers}  din.</div>
           <div className="product_extras">
 
             <a className="product_cart_button" href={`${global.PATH}/client/product/${this.props.productId}`}>Uporedite cene</a>

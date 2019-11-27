@@ -19,6 +19,7 @@ class Main extends Component {
             categories: [],
             brands: [],
             visible: 4,
+            order: {},
             getProduct: this.getProduct.bind(this),
             getProducts: this.getProducts.bind(this),
             getCategory: this.getCategory.bind(this),
@@ -26,8 +27,9 @@ class Main extends Component {
             getBrands: this.getBrands.bind(this),
             getOffers: this.getOffers.bind(this),
             getProductsByBrand: this.getProductsByBrand.bind(this),
-            sortAscending: this.sortAscending.bind(this),
-            sortDescending: this.sortDescending.bind(this),
+            // sortProducts: this.sortProducts.bind(this),
+            // sortAscending: this.sortAscending.bind(this),
+            // sortDescending: this.sortDescending.bind(this),
             getProductsByCategory: this.getProductsByCategory.bind(this),
             search: this.search.bind(this),
             loadMore: this.loadMore.bind(this)
@@ -37,9 +39,11 @@ class Main extends Component {
     }
 
     getProducts() {
-        const products = this.productService.getProducts();
 
-        this.setState({products});
+        this.productService.getProducts()
+            .then(({items}) => {
+                this.setState({products: items});
+            });
     }
 
     getProduct(productId) {
@@ -51,18 +55,20 @@ class Main extends Component {
 
     }
     getCategory(categoryId) {
-        const category = this.categoriesService.getCategory(categoryId);
+        this.categoriesService
+            .getCategory(categoryId)
+            .then(category => {
+                this.setState({category});
+            });
+        // const category = this.categoriesService.getCategory(categoryId);
 
-        this.setState({category});
+        // this.setState({category});
     }
     getCategories() {
         this.categoriesService.getCategories()
             .then(({items}) => {
                 this.setState({categories: items});
             });
-        // const categories = this.categoriesService.getCategories();
-        //
-        // this.setState({categories});
     }
     getProductsByCategory(categoryId) {
         this.productService.getProductsByCategory(categoryId)
@@ -84,16 +90,23 @@ class Main extends Component {
         const offers = this.productService.getOffers(productId);
         this.setState({offers});
     }
-    sortAscending() {
-        const products = this.productService.getProducts();
-        products.sort((a, b) => (a.price - b.price));
-        this.setState({ products });
-    };
-    sortDescending() {
-        const products = this.productService.getProducts();
-        products.sort((a, b) => (a.price - b.price)).reverse();
-        this.setState({ products });
-    }
+    // sortProducts() {
+    //     this.productService.sortProducts()
+    //         .then(({items}) => {
+    //             this.setState({products: items, visible: 4});
+    //         });
+    // }
+    // sortAscending(categoryId, order) {
+    //     // this.productService.getProductsByCategory(categoryId)
+    //     //     .then(({items}) => {
+    //     //         this.setState({products: items, order: order, visible: 4});
+    //     //     });
+    // };
+    // sortDescending() {
+    //     const products = this.productService.getProducts();
+    //     products.sort((a, b) => (a.price - b.price)).reverse();
+    //     this.setState({ products });
+    // }
     search(searchInput) {
         this.productService
             .searchProduct(searchInput)
