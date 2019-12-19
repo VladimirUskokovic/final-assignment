@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 class Specifications extends Component {
 
     render() {
+        console.log(this.props.specifications);
         return (
             <div className="specifications">
                 <table className="table">
@@ -17,7 +18,6 @@ class Specifications extends Component {
 
                         );
                     })}
-
                     </tbody></table>
             </div>
 

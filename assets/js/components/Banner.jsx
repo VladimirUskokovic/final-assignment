@@ -8,7 +8,7 @@ class Banner extends Component {
                     <div className="banner_product_image"><img src="images/pricecheck.png" alt=""/></div>
                     <div className="col-lg-5 offset-lg-4 fill_height">
                         <div className="banner_content">
-                            <h1 className="banner_text">Welcome to the best place for comparison prices of tech products on our market</h1>
+                            <h1 className="banner_text">Dobrodošli na najbolje mesto za upoređivanje cena tehnoloških proizvoda na našem tržištu</h1>
                         </div>
                     </div>
                 </div>

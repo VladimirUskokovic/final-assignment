@@ -26,7 +26,7 @@ class Content extends Component {
                                         <Product title={product.name} category={product.category}
                                                  price={product.price} image={product.images[0]}
                                                  key={product.id} productId={product.id}
-                                                 store={product.store}/>
+                                                 store={product.store} offers={product.offers} />
                                     ))}
                                 </div>
                             </div>

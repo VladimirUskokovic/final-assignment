@@ -19,7 +19,7 @@ class CategoriesService extends ApiService {
         // }).then(res => res.json());
     }
     getCategory(categoryId) {
-        return fetch(`${API_ENDPOINT}?category=${categoryId}`)
+        return fetch(`${API_ENDPOINT}${categoryId}`)
             .then(response => response.json());
         // return this.categories.find(category => category.categoryId === categoryId);
     }

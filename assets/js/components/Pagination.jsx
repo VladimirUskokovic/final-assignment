@@ -19,7 +19,7 @@ class Pagination extends Component {
         return (
             <div className="shop_page_nav d-flex flex-row">
                 <div>{visible < products.length &&
-                <button onClick={this.loadMore} type="button" className="button product_cart_button load-more">Load more</button>
+                <button onClick={this.loadMore} type="button" className="button product_cart_button load-more">Učitajte još ...</button>
                 }</div>
             </div>
         );

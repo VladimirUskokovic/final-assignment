@@ -25,21 +25,23 @@ class ProductLarge extends Component {
     if (!product) {
       return null;
     }
-
-    let images = product.images.map((val, key) => <li onClick={() => {this.setModal(key)}} key={key}><img src={val} alt=""/></li>);
-
+    function addDefaultSrc(ev){
+      ev.target.src = '/images/Placeholder.jpg';
+    }
+    let images = product.images.map((val, key) => <li onClick={() => {this.setModal(key)}} key={key}><img onError={addDefaultSrc} src={val} alt=""/></li>);
+    console.log(this.props.images);
     return (
       <div>
         <div className="container">
           <div className="row">
             <div className="col-lg-2 order-lg-1 order-2">
               <ul className="image_list">
-                {images.slice(0, 3)}
+                { images.slice(0, 3) }
               </ul>
             </div>
             <div className="col-lg-5 order-lg-2 order-1">
               <div className="image_selected">
-                <img src={product.images[this.state.image]}/>
+                <img onError={addDefaultSrc} src={product.images[this.state.image]}/>
                 </div>
             </div>
             <div className="col-lg-5 order-3">

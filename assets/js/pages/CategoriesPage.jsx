@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import CategoriesContent from "../layout/CategoriesContent";
 import ProductContext from "../AppContext";
-import ProductsService from "../services/ProductsService";
-import CategoriesService from "../services/CategoriesService";
 
 class CategoriesPage extends Component {
 

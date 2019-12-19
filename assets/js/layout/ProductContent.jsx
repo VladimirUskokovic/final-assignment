@@ -10,6 +10,7 @@ class ProductContent extends Component {
     }
     render() {
         const { product, offers } = this.props;
+        console.log(product);
         return (
             <div>
                 <div className="single_product">

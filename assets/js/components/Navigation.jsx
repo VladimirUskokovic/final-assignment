@@ -14,7 +14,7 @@ class Navigation extends Component {
                     <div className="col">
                         <div className="main_nav_content d-flex">
                             <div className="logo_container">
-                                <div className="logo"><a href="#">CoTech</a></div>
+                                <div className="logo"><a href="/client">CoTech</a></div>
                             </div>
                             <div className="cat_menu_container">
                                 <div

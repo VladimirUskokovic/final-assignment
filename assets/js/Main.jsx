@@ -27,6 +27,7 @@ class Main extends Component {
             getBrands: this.getBrands.bind(this),
             getOffers: this.getOffers.bind(this),
             getProductsByBrand: this.getProductsByBrand.bind(this),
+            sortProducts: this.sortProducts.bind(this),
             // sortProducts: this.sortProducts.bind(this),
             // sortAscending: this.sortAscending.bind(this),
             // sortDescending: this.sortDescending.bind(this),
@@ -90,12 +91,12 @@ class Main extends Component {
         const offers = this.productService.getOffers(productId);
         this.setState({offers});
     }
-    // sortProducts() {
-    //     this.productService.sortProducts()
-    //         .then(({items}) => {
-    //             this.setState({products: items, visible: 4});
-    //         });
-    // }
+    sortProducts(sort, dir) {
+        this.productService.sortProducts(sort, dir)
+            .then(({items}) => {
+                this.setState({products: items, visible: 4});
+            });
+    }
     // sortAscending(categoryId, order) {
     //     // this.productService.getProductsByCategory(categoryId)
     //     //     .then(({items}) => {

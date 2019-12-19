@@ -15,7 +15,7 @@ class CategoriesMain extends Component {
 
             <div className="shop_content">
                 <div>
-                    <CategoriesBar products={products} category={category}/>
+                    <CategoriesBar products={products} category={category} />
                 </div>
                 <div>
                     <CategoriesGrid products={products} visible={this.context.visible}/>

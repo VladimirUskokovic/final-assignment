@@ -34,12 +34,8 @@ class ProductsService extends ApiService {
     getBrands() {
         return this.brands;
     }
-    sortProducts() {
-        const order = {
-            name: 'price',
-            dir: 'desc'
-        };
-        let path = `${API_ENDPOINT}/?dir=${order.dir}`;
+    sortProducts(sort, dir) {
+        let path = `${API_ENDPOINT}/?sortBy=${sort}&dir=${dir}`;
         return fetch(path)
             .then(response => response.json());
     }

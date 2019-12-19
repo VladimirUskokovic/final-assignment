@@ -17,7 +17,7 @@ class Shop extends Component {
                             <Sidebar categories={categories}/>
                         </div>
                         <div className="col-lg-9">
-                            <CategoriesMain products={products} category={category} />
+                            <CategoriesMain products={products} category={category} categories={categories} />
                         </div>
                     </div>
                 </div>
