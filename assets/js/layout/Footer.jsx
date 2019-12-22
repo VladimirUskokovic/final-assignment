@@ -12,10 +12,10 @@ class Footer extends Component {
                                 <div className="logo_container">
                                     <div className="logo"><a href="#">CoTech</a></div>
                                 </div>
-                                <div className="footer_title">Got Question? Call Us 24/7</div>
+                                <div className="footer_title">Imate pitanja? Stojimo Vam na raspolaganju</div>
                                 <div className="footer_phone">+381 65 22 66 530 <br/> +381 64 387 55 99</div>
                                 <div className="footer_contact_text">
-                                    <p>Belgrade, Serbia</p>
+                                    <p>Beograd, Srbija</p>
                                 </div>
                                 <div className="footer_social">
                                     <ul>
@@ -30,7 +30,7 @@ class Footer extends Component {
                         </div>
                         <div className="col-lg-2 offset-lg-2">
                             <div className="footer_column">
-                                <div className="footer_title">Find it Fast</div>
+                                <div className="footer_title">Brzi linkovi</div>
                                 <ul className="footer_list">
                                     <li><a href="#">Computers & Laptops</a></li>
                                     <li><a href="#">Cameras & Photos</a></li>
@@ -57,15 +57,9 @@ class Footer extends Component {
                         </div>
                         <div className="col-lg-2">
                             <div className="footer_column">
-                                <div className="footer_title">Customer Care</div>
+                                <div className="footer_title">Cesto postavljana pitanja</div>
                                 <ul className="footer_list">
-                                    <li><a href="#">My Account</a></li>
-                                    <li><a href="#">Order Tracking</a></li>
-                                    <li><a href="#">Wish List</a></li>
-                                    <li><a href="#">Customer Services</a></li>
-                                    <li><a href="#">Returns / Exchange</a></li>
                                     <li><a href="#">FAQs</a></li>
-                                    <li><a href="#">Product Support</a></li>
                                 </ul>
                             </div>
                         </div>

@@ -26,6 +26,11 @@ class Seller
      */
     private $link;
 
+    /**
+     * @ORM\Column(type="array")
+     */
+    private $pagesToFetch = [];
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Seller
     public function setLink(string $link): self
     {
         $this->link = $link;
+
+        return $this;
+    }
+
+    public function getPagesToFetch(): ?array
+    {
+        return $this->pagesToFetch;
+    }
+
+    public function setPagesToFetch(array $pagesToFetch): self
+    {
+        $this->pagesToFetch = $pagesToFetch;
 
         return $this;
     }

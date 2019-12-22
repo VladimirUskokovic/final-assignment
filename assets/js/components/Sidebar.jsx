@@ -1,34 +1,36 @@
 import React, { Component } from 'react';
+import Offer from "./ProductList";
+import global from "../util/global";
+import {NavLink} from "react-router-dom";
 
 class Sidebar extends Component {
+
     render() {
+        const { categories } = this.props;
+        const { brands } = this.props;
         return (
             <div className="shop_sidebar">
                 <div className="sidebar_section">
-                    <div className="sidebar_title">Categories</div>
+                    <div className="sidebar_title">Kategorije</div>
                     <ul className="sidebar_categories">
-                        <li><a href="#">Computers & Laptops</a></li>
-                        <li><a href="#">Cameras & Photos</a></li>
-                        <li><a href="#">Hardware</a></li>
-                        <li><a href="#">Smartphones & Tablets</a></li>
-                        <li><a href="#">TV & Audio</a></li>
-                        <li><a href="#">Gadgets</a></li>
-                        <li><a href="#">Car Electronics</a></li>
-                        <li><a href="#">Video Games & Consoles</a></li>
-                        <li><a href="#">Accessories</a></li>
+                        {categories && categories.map(category => (
+                            <li key={category.id}>
+                                <NavLink to={`${global.PATH}/client/category/${category.id}`}>
+                                    {category.name}
+                                </NavLink>
+                            </li>
+                        ))}
                     </ul>
                 </div>
                 <div className="sidebar_section">
                     <div className="sidebar_subtitle brands_subtitle">Brands</div>
                     <ul className="brands_list">
-                        <li className="brand"><a href="#">Apple</a></li>
-                        <li className="brand"><a href="#">Beoplay</a></li>
-                        <li className="brand"><a href="#">Google</a></li>
-                        <li className="brand"><a href="#">Meizu</a></li>
-                        <li className="brand"><a href="#">OnePlus</a></li>
-                        <li className="brand"><a href="#">Samsung</a></li>
-                        <li className="brand"><a href="#">Sony</a></li>
-                        <li className="brand"><a href="#">Xiaomi</a></li>
+                        {brands && brands.map(brand => (
+                            <li className="brand" key={brand.brandId}>
+                                <input type="checkbox" id={brand.brandId} name={brand.brandId}/>
+                                    <label htmlFor={brand.brandName}>{brand.brandName}</label>
+                            </li>
+                        ))}
                     </ul>
                 </div>
             </div>

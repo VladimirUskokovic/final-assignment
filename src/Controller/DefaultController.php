@@ -2,46 +2,71 @@
 
 namespace App\Controller;
 
+use App\Entity\Queue;
+use App\Entity\Seller;
+use App\Service\QueueService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class DefaultController extends Controller {
 
+    private $entityManager;
+    private $queueService;
 
-    /**
-     * @Route("/", name="home")
+    public function __construct(EntityManagerInterface $entityManager, QueueService $queueService)
+    {
+      $this->entityManager = $entityManager;
+      $this->queueService = $queueService;
+    }
+
+  /**
+     * @Route("/", name="index")
      */
     public function index() {
-        return $this->render('base.html.twig');
+      return $this->redirectToRoute('app_api_documentation_html');
     }
 
     /**
-     * @Route("/data", name="data")
-     */
-    public function home() {
-        return new JsonResponse([
-            [
-                'id' => 1,
-                'author' => 'Chris Colborne',
-                'avatarUrl' => 'http://1.gravatar.com/avatar/13dbc56733c2cc66fbc698cdb07fec12',
-                'title' => 'Bitter Predation',
-                'description' => 'Thirteen thin, round towers …',
-            ],
-            [
-                'id' => 2,
-                'author' => 'Louanne Perez',
-                'avatarUrl' => 'https://randomuser.me/api/portraits/thumb/women/18.jpg',
-                'title' => 'Strangers of the Ambitious',
-                'description' => "A huge gate with thick metal doors …",
-            ],
-            [
-                'id' => 3,
-                'author' => 'Theodorus Dietvorst',
-                'avatarUrl' => 'https://randomuser.me/api/portraits/thumb/men/49.jpg',
-                'title' => 'Outsiders of the Mysterious',
-                'description' => "Plain fields of a type of grass cover …",
-            ],
-        ]);
+    * @Route("/cronjob", name="cronjob")
+    */
+    public function cronjob() {
+      $queue = $this->entityManager
+        ->getRepository(Queue::class)
+        ->findOneBy([], ['created_at' => 'ASC']);
+
+      if ($queue) {
+        $this->queueService->runJob($queue);
+      } else {
+        $sellers = $this->getSellers();
+
+        foreach ($sellers as $key => $seller) {
+          foreach ($seller->getPagesToFetch() as $page) {
+            $queue = new Queue();
+            $queue->setCreatedAt((new \DateTime('now'))->getTimestamp());
+            $queue->setUrl("{$seller->getLink()}{$page}");
+            $queue->setType(Queue::NAVIGATION_TYPE);
+
+            $this->entityManager->persist($queue);
+          }
+        }
+
+        $this->entityManager->flush();
+      }
+
+      return new Response();
+    }
+
+    private function getSellers()
+    {
+      $sellerRepository = $this->entityManager->getRepository(Seller::class);
+      $sellers = $sellerRepository->findAll();
+
+      if (!$sellers) {
+        return null;
+      }
+
+      return $sellers;
     }
 }
